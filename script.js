@@ -46,21 +46,3 @@ const searchname = () => {
 
 }
 
-/*function gotonext(event) { 
-    event.preventDefault(); 
-    window.history.pushState({}, '', event.target.href); 
-    constructPage(); 
-} 
-const routes = { 
-    '/home':'./home.html'  
-} 
-function constructPage() { 
-    let path = window.location.pathname; 
-    fetch("./home.html") 
-    .then(function(htmlContent) { 
-        htmlContent.text() 
-        .then(function(content) { 
-            document.querySelector('.salary').innerHTML = content; 
-        })
-    })
-}
