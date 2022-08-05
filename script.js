@@ -6,7 +6,7 @@ fetch(url)
   })
   .then(parsedData => {
     //console.log(parsedData);
-   localStorage.setItem("data", JSON.stringify(parsedData.results));
+    localStorage.setItem("data", JSON.stringify(parsedData.results));
 
 
     let UserDetails = JSON.parse(localStorage.getItem("data"))
@@ -30,7 +30,6 @@ const searchname = () => {
   let searchdata = JSON.parse(localStorage.getItem("data"));
   let val = document.querySelector('.search-box').value;
   let userdata = searchdata.filter((item) => item.name.first === val);
-  console.log(userdata);
   userdata.map(info => {
     //console.log(info);
     details += `
@@ -45,4 +44,26 @@ const searchname = () => {
   document.getElementById("root").innerHTML = details;
 
 }
+function expense() {
+  let salary = 100000;
+  let amount = document.querySelector(".main").value
+  amount = salary - amount;
+  details = "";
+  let searchdata = JSON.parse(localStorage.getItem("data"));
+  let val = document.querySelector('.search-box').value;
+  let userdata = searchdata.filter((item) => item.name.first === val);
+  userdata.map(info => {
+    //console.log(info);
+    details += `<div class="user">
+              <p>${info.name.title}.${info.name.first} ${info.name.last}</p>
+              <p>${info.dob.age}</p>
+              <p>${info.location.country}</p>
+              <img src=${info.picture.medium}>
+              <p>salry=${salary} </p>
+              <p>balance=${amount}</p>
+              </div>`;
+  })
 
+  document.getElementById("root").innerHTML = details;
+
+}
